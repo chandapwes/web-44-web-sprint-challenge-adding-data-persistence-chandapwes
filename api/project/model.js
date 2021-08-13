@@ -1,8 +1,20 @@
 // build your `Project` model here
- const db = require('../../data/dbConfig')
+const db = require('../../data/dbConfig')
 
- function getProjects() {
-    return db('projects')  
+ async function getProjects() {
+    const rows = await db('projects as p')
+        .where('p.projects')
+        .select('p.*')
+        .orderBy('p.project_id')
+
+    const result = {
+        project_id: rows[0].project_id,
+        project_name: rows[0].project_name,
+        project_description: rows[0].project_description,
+        project_completed: false,
+    }
+
+    return result
  }
 
  function postProject(project) {
