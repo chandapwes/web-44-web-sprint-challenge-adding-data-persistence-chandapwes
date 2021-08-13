@@ -1,6 +1,14 @@
 // build your `/api/projects` router here
 const router = require('express').Router()
 
+router.post('/', (req, res, next) => {
+    console.log('post in project')
+})
+
+router.get('/', (req, res, next) => {
+    console.log('get in project')
+})
+
 router.use((err, req, res, next) => { // eslint-disable-line
     res.status(500).json({
         customMessage: 'something went wrong inside the project router',
