@@ -9,12 +9,12 @@ const server = express();
 
 server.use(express.json());
 
-server.use('/api/project', ProjectRouter);
-server.use('/api/resource', ResourceRouter)
-server.use('/api/task', TaskRouter)
+server.use('/api/projects', ProjectRouter);
+server.use('/api/resources', ResourceRouter)
+server.use('/api/tasks', TaskRouter)
 
-server.use('*', (req, res) => {
-    res.json({ api: 'up' })
-})
+// server.use('*', (req, res) => {
+//     res.json({ api: 'up' })
+// })
 
 module.exports = server;
